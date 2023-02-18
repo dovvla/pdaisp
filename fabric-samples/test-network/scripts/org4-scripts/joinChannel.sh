@@ -28,6 +28,7 @@ MAX_RETRY=5
 # joinChannel ORG
 joinChannel() {
   ORG=$1
+  setGlobals $ORG
   local rc=1
   local COUNTER=1
   ## Sometimes Join takes time, hence retry
@@ -48,9 +49,9 @@ setAnchorPeer() {
   ORG=$1
   scripts/setAnchorPeer.sh $ORG $CHANNEL_NAME
 }
-
 setGlobalsCLI 4
 BLOCKFILE="${CHANNEL_NAME}.block"
+
 
 echo "Fetching channel config block from orderer..."
 set -x
@@ -62,6 +63,10 @@ verifyResult $res "Fetching config block from orderer has failed"
 
 infoln "Joining org4 peer to the channel..."
 joinChannel 4
+joinChannel 8
+joinChannel 12
+joinChannel 16
+
 
 infoln "Setting anchor peer for org4..."
 setAnchorPeer 4

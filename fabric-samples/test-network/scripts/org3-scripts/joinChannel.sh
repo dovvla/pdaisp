@@ -28,6 +28,8 @@ MAX_RETRY=5
 # joinChannel ORG
 joinChannel() {
   ORG=$1
+  setGlobals $ORG
+
   local rc=1
   local COUNTER=1
   ## Sometimes Join takes time, hence retry
@@ -62,6 +64,10 @@ verifyResult $res "Fetching config block from orderer has failed"
 
 infoln "Joining org3 peer to the channel..."
 joinChannel 3
+joinChannel 7
+joinChannel 11
+joinChannel 15
+
 
 infoln "Setting anchor peer for org3..."
 setAnchorPeer 3

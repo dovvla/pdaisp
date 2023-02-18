@@ -37,7 +37,7 @@
             }
         },
         "peer1.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12151",
+            "url": "grpcs://localhost:9151",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -47,7 +47,7 @@
             }
         },
         "peer2.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12251",
+            "url": "grpcs://localhost:9251",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -57,7 +57,7 @@
             }
         },
         "peer3.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12351",
+            "url": "grpcs://localhost:9351",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -72,7 +72,7 @@
             "url": "https://localhost:${CAPORT}",
             "caName": "ca-org${ORG}",
             "tlsCACerts": {
-                "pem": "${CAPEM}"
+                "pem": ["${CAPEM}"]
             },
             "httpOptions": {
                 "verify": false

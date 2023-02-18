@@ -12,9 +12,6 @@ organizations:
     mspid: Org${ORG}MSP
     peers:
       - peer0.org${ORG}.example.com
-      - peer1.org${ORG}.example.com
-      - peer2.org${ORG}.example.com
-      - peer3.org${ORG}.example.com
     certificateAuthorities:
       - ca.org${ORG}.example.com
 peers:
@@ -27,7 +24,7 @@ peers:
       ssl-target-name-override: peer0.org${ORG}.example.com
       hostnameOverride: peer0.org${ORG}.example.com
   peer1.org${ORG}.example.com:
-    url: grpcs://localhost:11151
+    url: grpcs://localhost:9151
     tlsCACerts:
       pem: |
         ${PEERPEM}
@@ -35,7 +32,7 @@ peers:
       ssl-target-name-override: peer1.org${ORG}.example.com
       hostnameOverride: peer1.org${ORG}.example.com
   peer2.org${ORG}.example.com:
-    url: grpcs://localhost:11251
+    url: grpcs://localhost:9251
     tlsCACerts:
       pem: |
         ${PEERPEM}
@@ -43,7 +40,7 @@ peers:
       ssl-target-name-override: peer2.org${ORG}.example.com
       hostnameOverride: peer2.org${ORG}.example.com
   peer3.org${ORG}.example.com:
-    url: grpcs://localhost:11351
+    url: grpcs://localhost:9351
     tlsCACerts:
       pem: |
         ${PEERPEM}
@@ -55,7 +52,8 @@ certificateAuthorities:
     url: https://localhost:${CAPORT}
     caName: ca-org${ORG}
     tlsCACerts:
-      pem: |
-        ${CAPEM}
+      pem:
+        - |
+          ${CAPEM}
     httpOptions:
       verify: false

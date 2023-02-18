@@ -318,7 +318,8 @@ function networkDown() {
   # stop org3 containers also in addition to org1 and org2, in case we were running sample to add org3
   docker-compose -f $COMPOSE_FILE_BASE -f $COMPOSE_FILE_COUCH -f $COMPOSE_FILE_CA down --volumes --remove-orphans
   docker-compose -f $COMPOSE_FILE_COUCH_ORG3 -f $COMPOSE_FILE_ORG3 down --volumes --remove-orphans
-  docker-compose -f $COMPOSE_FILE_ORG4 down --volumes --remove-orphans
+  docker-compose -f $COMPOSE_FILE_COUCH_ORG4 -f $COMPOSE_FILE_ORG4 down --volumes --remove-orphans
+
 
   # Don't remove the generated artifacts -- note, the ledgers are always removed
   if [ "$MODE" != "restart" ]; then
@@ -371,6 +372,8 @@ COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml
 COMPOSE_FILE_CA=docker/docker-compose-ca.yaml
 # use this as the docker compose couch file for org3
 COMPOSE_FILE_COUCH_ORG3=addOrg3/docker/docker-compose-couch-org3.yaml
+COMPOSE_FILE_COUCH_ORG4=addOrg4/docker/docker-compose-couch-org4.yaml
+
 # use this as the default docker-compose yaml definition for org3
 COMPOSE_FILE_ORG3=addOrg3/docker/docker-compose-org3.yaml
 COMPOSE_FILE_ORG4=addOrg4/docker/docker-compose-org4.yaml
