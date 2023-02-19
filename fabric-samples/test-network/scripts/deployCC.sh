@@ -123,6 +123,8 @@ packageChaincode() {
 installChaincode() {
   ORG=$1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   set -x
   peer lifecycle chaincode install ${CC_NAME}.tar.gz >&log.txt
   res=$?
@@ -136,6 +138,8 @@ installChaincode() {
 queryInstalled() {
   ORG=$1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   set -x
   peer lifecycle chaincode queryinstalled >&log.txt
   res=$?
@@ -150,6 +154,8 @@ queryInstalled() {
 approveForMyOrg() {
   ORG=$1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   set -x
   peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
   res=$?
@@ -164,6 +170,8 @@ checkCommitReadiness() {
   ORG=$1
   shift 1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   infoln "Checking the commit readiness of the chaincode definition on peer0.org${ORG} on channel '$CHANNEL_NAME'..."
   local rc=1
   local COUNTER=1
@@ -212,6 +220,8 @@ commitChaincodeDefinition() {
 queryCommitted() {
   ORG=$1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   EXPECTED_RESULT="Version: ${CC_VERSION}, Sequence: ${CC_SEQUENCE}, Endorsement Plugin: escc, Validation Plugin: vscc"
   infoln "Querying chaincode definition on peer0.org${ORG} on channel '$CHANNEL_NAME'..."
   local rc=1
@@ -259,6 +269,8 @@ chaincodeInvokeInit() {
 chaincodeQuery() {
   ORG=$1
   setGlobals $ORG
+  P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+  export CORE_PEER_ADDRESS=$P_PORT
   infoln "Querying on peer0.org${ORG} on channel '$CHANNEL_NAME'..."
   local rc=1
   local COUNTER=1
@@ -285,14 +297,33 @@ chaincodeQuery() {
 ## package the chaincode
 packageChaincode
 
-## Install chaincode on peer0.org1 and peer0.org2
-infoln "Installing chaincode on peer0.org1..."
+# Install chaincode on peer0.org1 and peer0.org2
 installChaincode 1
-infoln "Install chaincode on peer0.org2..."
+# infoln "Install chaincode on peer0.org2..."
 installChaincode 2
+installChaincode 3
+installChaincode 4
+installChaincode 5
+installChaincode 6
+installChaincode 7
+installChaincode 8
+installChaincode 9
+installChaincode 10
+installChaincode 11
+installChaincode 12
+installChaincode 13
+installChaincode 14
+installChaincode 15
+installChaincode 16
+
 
 ## query whether the chaincode is installed
-queryInstalled 1
+cnt=1
+while [ $cnt -le 16 ]
+do
+  queryInstalled $cnt
+  cnt=$(( $cnt + 1 ))
+done
 
 ## approve the definition for org1
 approveForMyOrg 1
@@ -310,19 +341,26 @@ approveForMyOrg 2
 checkCommitReadiness 1 "\"Org1MSP\": true" "\"Org2MSP\": true"
 checkCommitReadiness 2 "\"Org1MSP\": true" "\"Org2MSP\": true"
 
+approveForMyOrg 3
+
+approveForMyOrg 4
+
 ## now that we know for sure both orgs have approved, commit the definition
-commitChaincodeDefinition 1 2
+commitChaincodeDefinition 1 2 3 4
 
 ## query on both orgs to see that the definition committed successfully
 queryCommitted 1
 queryCommitted 2
+queryCommitted 3
+queryCommitted 4
+
 
 ## Invoke the chaincode - this does require that the chaincode have the 'initLedger'
 ## method defined
 if [ "$CC_INIT_FCN" = "NA" ]; then
   infoln "Chaincode initialization is not required"
 else
-  chaincodeInvokeInit 1 2
+  chaincodeInvokeInit 1 2 3 4
 fi
 
 exit 0

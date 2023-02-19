@@ -55,81 +55,97 @@ setGlobals() {
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7051
+    export PEER_PORT=7051
   elif [ $USING_ORG -eq 2 ]; then
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:9051
+    export PEER_PORT=9051
   elif [ $USING_ORG -eq 3 ]; then
     export CORE_PEER_LOCALMSPID="Org3MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
     export CORE_PEER_ADDRESS=peer0.org3.example.com:11051
+    export PEER_PORT=11051
   elif [ $USING_ORG -eq 4 ]; then
     export CORE_PEER_LOCALMSPID="Org4MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG4_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
     export CORE_PEER_ADDRESS=peer0.org4.example.com:12051
+    export PEER_PORT=12051
   elif [ $USING_ORG -eq 5 ]; then
     export CORE_PEER_LOCALMSPID="Org1MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7151
+    export PEER_PORT=7151
   elif [ $USING_ORG -eq 6 ]; then
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:9151
+    export PEER_PORT=9151
   elif [ $USING_ORG -eq 7 ]; then
     export CORE_PEER_LOCALMSPID="Org3MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG3_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
     export CORE_PEER_ADDRESS=peer1.org3.example.com:11151
+    export PEER_PORT=11151
   elif [ $USING_ORG -eq 8 ]; then
     export CORE_PEER_LOCALMSPID="Org4MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG4_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
     export CORE_PEER_ADDRESS=peer1.org4.example.com:12151
+    export PEER_PORT=12151
   elif [ $USING_ORG -eq 9 ]; then
     export CORE_PEER_LOCALMSPID="Org1MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER2_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7251
+    export PEER_PORT=7251
   elif [ $USING_ORG -eq 10 ]; then
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER2_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:9251
+    export PEER_PORT=9251
   elif [ $USING_ORG -eq 11 ]; then
     export CORE_PEER_LOCALMSPID="Org3MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER2_ORG3_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
     export CORE_PEER_ADDRESS=peer2.org3.example.com:11251
+    export PEER_PORT=11251
   elif [ $USING_ORG -eq 12 ]; then
     export CORE_PEER_LOCALMSPID="Org4MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER2_ORG4_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
     export CORE_PEER_ADDRESS=peer2.org4.example.com:12251
+    export PEER_PORT=12251
   elif [ $USING_ORG -eq 13 ]; then
     export CORE_PEER_LOCALMSPID="Org1MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7351
+    export PEER_PORT=7351
   elif [ $USING_ORG -eq 14 ]; then
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:9351
+    export PEER_PORT=9351
   elif [ $USING_ORG -eq 15 ]; then
     export CORE_PEER_LOCALMSPID="Org3MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG3_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
     export CORE_PEER_ADDRESS=peer3.org3.example.com:11351
+    export PEER_PORT=11351
   elif [ $USING_ORG -eq 16 ]; then
     export CORE_PEER_LOCALMSPID="Org4MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG4_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
     export CORE_PEER_ADDRESS=peer3.org4.example.com:12351
+    export PEER_PORT=12351
   else
     errorln "ORG Unknown"
   fi
@@ -195,6 +211,10 @@ parsePeerConnectionParameters() {
   while [ "$#" -gt 0 ]; do
     setGlobals $1
     PEER="peer0.org$1"
+    if [ "$#" -le 3 ]; then
+      P_PORT=localhost:$(echo ${CORE_PEER_ADDRESS}| cut -d ':' -f2)
+      export CORE_PEER_ADDRESS=$P_PORT
+    fi
     ## Set peer addresses
     PEERS="$PEERS $PEER"
     PEER_CONN_PARMS="$PEER_CONN_PARMS --peerAddresses $CORE_PEER_ADDRESS"
