@@ -49,7 +49,7 @@ function yaml_ccp2 {
 }
 
 ORG=1
-P0PORT=7351
+P0PORT=7051
 CAPORT=7054
 # PEERPEM=organizations/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
 PEERPEM=organizations/peerOrganizations/org1.example.com/peers/peer3.org1.example.com/tls/tlscacerts/tls-localhost-7054-ca-org1.pem
@@ -62,7 +62,7 @@ ORG=2
 P0PORT=9051
 CAPORT=8054
 # PEERPEM=organizations/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
-PEERPEM=organizations/peerOrganizations/org2.example.com/peers/peer3.org2.example.com/tls/tlscacerts/tls-localhost-8054-ca-org1.pem
+PEERPEM=organizations/peerOrganizations/org2.example.com/peers/peer3.org2.example.com/tls/tlscacerts/tls-localhost-8054-ca-org2.pem
 
 CAPEM=organizations/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem
 

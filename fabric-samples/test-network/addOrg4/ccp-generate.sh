@@ -30,7 +30,7 @@ ORG=4
 P0PORT=12051
 CAPORT=12054
 # PEERPEM=../organizations/peerOrganizations/org4.example.com/tlsca/tlsca.org4.example.com-cert.pem
-PEERPEM=../organizations/peerOrganizations/org4.example.com/peers/peer3.org4.example.com/tls/tlscacerts/tls-localhost-12054-ca-org1.pem
+PEERPEM=../organizations/peerOrganizations/org4.example.com/peers/peer3.org4.example.com/tls/tlscacerts/tls-localhost-12054-ca-org4.pem
 
 CAPEM=../organizations/peerOrganizations/org4.example.com/ca/ca.org4.example.com-cert.pem
 
