@@ -49,9 +49,10 @@ function yaml_ccp2 {
 }
 
 ORG=1
-P0PORT=7051
+P0PORT=7351
 CAPORT=7054
-PEERPEM=organizations/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+# PEERPEM=organizations/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+PEERPEM=organizations/peerOrganizations/org1.example.com/peers/peer3.org1.example.com/tls/tlscacerts/tls-localhost-7054-ca-org1.pem
 CAPEM=organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
 
 echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/connection-org1.json
@@ -60,7 +61,9 @@ echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrga
 ORG=2
 P0PORT=9051
 CAPORT=8054
-PEERPEM=organizations/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
+# PEERPEM=organizations/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
+PEERPEM=organizations/peerOrganizations/org2.example.com/peers/peer3.org2.example.com/tls/tlscacerts/tls-localhost-8054-ca-org1.pem
+
 CAPEM=organizations/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem
 
 echo "$(json_ccp2 $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/connection-org2.json

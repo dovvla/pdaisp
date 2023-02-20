@@ -14,11 +14,10 @@
     "organizations": {
         "Org${ORG}": {
             "mspid": "Org${ORG}MSP",
+            "cryptoPath":"/home/dovla/repos/pdaisp/fabric-samples/test-network/organizations/peerOrganizations/org4.example.com/msp",
+
             "peers": [
-                "peer0.org${ORG}.example.com",
-                "peer1.org${ORG}.example.com",
-                "peer2.org${ORG}.example.com",
-                "peer3.org${ORG}.example.com"
+                "peer0.org${ORG}.example.com"
             ],
             "certificateAuthorities": [
                 "ca.org${ORG}.example.com"
@@ -34,36 +33,6 @@
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.org${ORG}.example.com",
                 "hostnameOverride": "peer0.org${ORG}.example.com"
-            }
-        },
-        "peer1.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12151",
-            "tlsCACerts": {
-                "pem": "${PEERPEM}"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer1.org${ORG}.example.com",
-                "hostnameOverride": "peer1.org${ORG}.example.com"
-            }
-        },
-        "peer2.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12251",
-            "tlsCACerts": {
-                "pem": "${PEERPEM}"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer2.org${ORG}.example.com",
-                "hostnameOverride": "peer2.org${ORG}.example.com"
-            }
-        },
-        "peer3.org${ORG}.example.com": {
-            "url": "grpcs://localhost:12351",
-            "tlsCACerts": {
-                "pem": "${PEERPEM}"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer3.org${ORG}.example.com",
-                "hostnameOverride": "peer3.org${ORG}.example.com"
             }
         }
     },
